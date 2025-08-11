@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="UTF-8">
+    <title>Make a Payment</title>
+</head>
+<body>
+    <h1>Payment Page</h1>
+    <form action="payment.php" method="post">
+        <label for="user_id">User ID:</label><br>
+        <input type="text" name="user_id" required><br><br>
+
+        <label for="booking_id">Booking ID:</label><br>
+        <input type="text" name="booking_id" required><br><br>
+
+        <label for="amount">Amount (KES):</label><br>
+        <input type="number" name="amount" required><br><br>
+
+        <label for="method">Payment Method:</label><br>
+        <select name="method" required>
+            <option value="mpesa">M-Pesa</option>
+            <option value="credit_card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+        </select><br><br>
+
+        <label for="transaction_id">Transaction ID:</label><br>
+        <input type="text" name="transaction_id" required><br><br>
+
+        <input type="submit" value="Confirm Payment">
+    </form>
+    <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+    <p>Designed with 💜 by Susan Wangari Thuo</p>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Amalia Residences</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* FAQ Specific Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 80px auto 60px;
+            padding: 20px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .faq-question:after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 20px;
+        }
+        
+        .faq-question.active:after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 15px 20px;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- FAQ Content -->
+    <main class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+            <div class="faq-question">1. How do I book a property?</div>
+            <div class="faq-answer">
+                <p>To book a property, simply browse our listings, select your desired dates, and click "Book Now". You'll need to create an account or log in to complete your reservation.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">2. What is your cancellation policy?</div>
+            <div class="faq-answer">
+                <p>We offer flexible cancellation policies that vary by property. Each listing clearly displays its specific cancellation policy before you book.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">3. How do I contact the property owner?</div>
+            <div class="faq-answer">
+                <p>After booking, you'll have access to our secure messaging system to communicate directly with the property owner or manager.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">4. What payment methods are accepted?</div>
+            <div class="faq-answer">
+                <p>After booking, you'll have access to our secure psyment system tat accepts M-Pesa mode of payment.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">5. Are there additional fees after I have booked my stay?</div>
+            <div class="faq-answer">
+                <p>After booking, Some hosts may charge a cleaning fee or security deposit.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">6. . Do I need a visa to stay in an Airbnb in Kenya?</div>  
+            <div class="faq-answer">
+                <p> Foreign visitors may need a Kenyan eVisa (check requirements based on nationality) but East African citizens (Uganda, Tanzania, Rwanda, etc.) may not need a visa.
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">7.What if I have issues during my stay?</div>
+            <div class="faq-answer">
+                <p>- Contact the host first and if your issue stays unresolved, reach out to Airbnb Customer Support via the app. .</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="main-footer">
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+    <p>Designed with 💜 by Susan Wangari Thuo</p>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
