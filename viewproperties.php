@@ -25,6 +25,14 @@ $result = $conn->query($sql);
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+     <nav class="nav">
+        <a href="contact_us.php">Contact Us</a>
+        <a href="searchproperties.php">Search Now</a>
+        <a href="contact_us.php">Help & Support</a>
+        <a href="reviews.php">Leave a Review</a>
+        <a href="FAQs.html">FAQs</a>
+        <a href="logout.php">Log Out</a>
+    </nav>
     <h2>Available Properties</h2>
 
     <?php if ($result && $result->num_rows > 0): ?>
@@ -50,5 +58,11 @@ $result = $conn->query($sql);
     <?php endif; ?>
 
     <?php $conn->close(); ?>
+     <footer class="site-footer">
+  <div class="footer-content">
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
+    </footer>
 </body>
 </html>

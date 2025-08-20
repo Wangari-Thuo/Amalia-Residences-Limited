@@ -61,8 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Amalia Residences Limited - Add New Listing</title>
 </head>
 <body>
+     <nav class="nav">
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="viewproperties.php">Book Now</a>
+        <a href="contact_us.php">Contact Us</a>
+        <a href="searchproperties.php">Search Now</a>
+        <a href="contact_us.php">Help & Support</a>
+        <a href="reviews.php">Leave a Review</a>
+        <a href="FAQs.html">FAQs</a>
+        <a href="logout.php">Log Out</a>
     <a href="hostdashboard.php">Back to Dashboard</a>
     <a href="hostproperties.php">View Current Listings</a>
+</nav>
 
     <h2>Add a New Property Listing</h2>
     <p style="color:green;"><?php echo $message; ?></p>
@@ -89,10 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Add Listing</button>
     </form>
 
-    <footer>
-            <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
-            <p>Designed with Love by Susan</p>
-        </div>
+    <footer class="site-footer">
+  <div class="footer-content">
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
     </footer>
 </body>
 </html>

@@ -79,6 +79,16 @@ $conn->close();
   </style>
 </head>
 <body>
+   <nav class="nav"> <!-- Move nav to the top inside body -->
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="viewproperties.php">Book Now</a>
+        <a href="searchproperties.php">Search Now</a>
+        <a href="contact_us.php">Help & Support</a>
+        <a href="reviews.php">Leave a Review</a>
+        <a href="FAQs.html">FAQs</a>
+        <a href="logout.php">Log Out</a>
+    </nav>
   <div class="container">
     <h1>Contact Us</h1>
 
@@ -134,5 +144,11 @@ $conn->close();
       <a href="messages.php" class="view-messages-link">View My Previous Messages</a>
     <?php endif; ?>
   </div>
+   <footer class="site-footer">
+  <div class="footer-content">
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
+    </footer>
 </body>
 </html>

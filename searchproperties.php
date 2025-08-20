@@ -1,46 +1,51 @@
 <?php
 include 'db.php';
 
-// Get search inputs
+// Check if the search form was submitted
+$searchPerformed = !empty($_GET);
+
 $location = isset($_GET['location']) ? trim($_GET['location']) : '';
 $min_price = isset($_GET['min_price']) ? floatval($_GET['min_price']) : 0;
 $max_price = isset($_GET['max_price']) ? floatval($_GET['max_price']) : 0;
 $status = isset($_GET['status']) ? $_GET['status'] : '';
 
-// Build SQL query
-$sql = "SELECT * FROM properties WHERE 1=1";
-$params = [];
-$types = '';
+$result = null;
 
-if ($location !== '') {
-    $sql .= " AND location LIKE ?";
-    $params[] = "%$location%";
-    $types .= 's';
-}
-if ($min_price > 0) {
-    $sql .= " AND price >= ?";
-    $params[] = $min_price;
-    $types .= 'd';
-}
-if ($max_price > 0) {
-    $sql .= " AND price <= ?";
-    $params[] = $max_price;
-    $types .= 'd';
-}
-if ($status === 'available' || $status === 'booked') {
-    $sql .= " AND status = ?";
-    $params[] = $status;
-    $types .= 's';
-}
+if ($searchPerformed) {
+    // Build SQL query
+    $sql = "SELECT * FROM properties WHERE 1=1";
+    $params = [];
+    $types = '';
 
-$stmt = $conn->prepare($sql);
-if ($params) {
-    $stmt->bind_param($types, ...$params);
+    if ($location !== '') {
+        $sql .= " AND location LIKE ?";
+        $params[] = "%$location%";
+        $types .= 's';
+    }
+    if ($min_price > 0) {
+        $sql .= " AND price >= ?";
+        $params[] = $min_price;
+        $types .= 'd';
+    }
+    if ($max_price > 0) {
+        $sql .= " AND price <= ?";
+        $params[] = $max_price;
+        $types .= 'd';
+    }
+    if ($status === 'available' || $status === 'booked') {
+        $sql .= " AND status = ?";
+        $params[] = $status;
+        $types .= 's';
+    }
+
+    $stmt = $conn->prepare($sql);
+    if ($params) {
+        $stmt->bind_param($types, ...$params);
+    }
+    $stmt->execute();
+    $result = $stmt->get_result();
 }
-$stmt->execute();
-$result = $stmt->get_result();
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +53,16 @@ $result = $stmt->get_result();
     <title>Browse Properties</title>
 </head>
 <body>
+     <nav class="nav"> <!-- Move nav to the top inside body -->
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <a href="viewproperties.php">Book Now</a>
+        <a href="contact_us.php">Contact Us</a>
+        <a href="contact_us.php">Help & Support</a>
+        <a href="reviews.php">Leave a Review</a>
+        <a href="FAQs.html">FAQs</a>
+        <a href="logout.php">Log Out</a>
+    </nav>
     <h2>Search Properties</h2>
     <form method="GET" action="">
         <label>Location:</label>
@@ -66,7 +81,8 @@ $result = $stmt->get_result();
     </form>
 
     <h2>Results</h2>
-    <?php if ($result->num_rows > 0): ?>
+<?php if ($searchPerformed): ?>
+    <?php if ($result && $result->num_rows > 0): ?>
         <table border="1" cellpadding="8">
             <tr>
                 <th>Description</th>
@@ -86,10 +102,14 @@ $result = $stmt->get_result();
     <?php else: ?>
         <p>No properties found.</p>
     <?php endif; ?>
-     <footer class="site-footer">
+<?php else: ?>
+    <p>Please enter your search criteria above and click "Search".</p>
+<?php endif; ?>
+      <footer class="site-footer">
   <div class="footer-content">
-     <p&copy;> 2025 Amalia Residences Limited. All rights reserved.</p>
-     <p>Designed with Love by Susan</p>
- </footer>
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
+    </footer>
 </body>
 </html>

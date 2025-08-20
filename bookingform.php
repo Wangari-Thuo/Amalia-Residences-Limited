@@ -70,6 +70,17 @@ if (!$property_id || !$price || !$maxguests) {
 </head>
 <body>
     <h2>Book Property With Us</h2>
+    <nav class="nav">
+  <a href="signup.html">Sign Up</a>
+  <a href="login.html">Login</a>
+  <a href="contact_us.php">Contact Us</a>
+  <a href="searchproperties.php">Search Now</a>
+  <a href="contact_us.php">Help & Support</a>
+  <a href="reviews.php">Leave a Review</a>
+  <a href="aboutus.html">About Us</a>
+  <a href="FAQs.html">FAQs</a>
+  <a href="logout.php">Log Out</a>
+</nav>
 
     <form method="POST" action="bookingprocess.php">
         <input type="hidden" name="property_id" value="<?php echo htmlspecialchars($property_id); ?>">
@@ -94,7 +105,11 @@ if (!$property_id || !$price || !$maxguests) {
 
         <button type="submit">Confirm Booking</button>
     </form>
-    <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
-    <p>Designed with 💜 by Susan Wangari Thuo</p>
+   <footer class="site-footer">
+  <div class="footer-content">
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
+    </footer>
 </body>
 </html>

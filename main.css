@@ -25,10 +25,12 @@ html {
 }
 
 body {
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Homepage-specific background */
@@ -59,10 +61,21 @@ body.home-page {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    /*align-items: center;
     padding: 20px;
-    text-align: center;
+    text-align: center;*/
+}
+.hero-image
+{
+    flex: 1; /* This makes the hero image fill the available space */
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+.content{
+    flex: 1;
+
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -98,6 +111,7 @@ a:hover {
 
 /* ===== LAYOUT ===== */
 .container {
+    padding-top: 60px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -123,12 +137,15 @@ a:hover {
 
 /* Fixed Navigation Bar */
 .nav {
+
   position: fixed;
   top: 0;
   left:0;
+  height: 60px;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 15px;
   padding: 15px 0;
   z-index: 1000;
@@ -173,9 +190,9 @@ a:hover {
 
 /* Content area padding to account for fixed nav */
 .content {
-  padding-top: 60px; /* Matches nav height */
-  min-height: 100vh;
-}
+  padding-top: 20px; 
+  margin-top: 60px;
+  }
 
 /* ===== BUTTONS ===== */
 button,
@@ -289,20 +306,32 @@ label {
 .p-4 { padding: 2rem; }
 .p-5 { padding: 3rem; }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER ===== 
 .site-footer {
+    position: fixed;
      background: rgba(0, 0, 0, 0.8);
      left: 0;
   color: white;
   text-align: center;
+  padding-bottom: 60px;
   padding: 15px 0;
-  position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 1000;
+}*/
+
+.site-footer {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  margin-top: auto;
 }
+
 .site-footer p {
   margin: 5px 0;
+  color: white;
   font-size: 14px;
 }
 

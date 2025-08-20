@@ -34,9 +34,9 @@ $user_id = $_SESSION['user_id'];
     </nav>
     <footer class="site-footer">
   <div class="footer-content">
-     <p&copy;> 2025 Amalia Residences Limited. All rights reserved.</p>
-     <p>Designed with Love by Susan</p>
- </footer>
-
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
+    </footer>
 </body>
 </html>

@@ -56,11 +56,12 @@ $result = $stmt->get_result();
     <?php else: ?>
         <p>No reviews yet.</p>
     <?php endif; ?>
-    <footer class="site-footer">
+     <footer class="site-footer">
   <div class="footer-content">
-     <p&copy;> 2025 Amalia Residences Limited. All rights reserved.</p>
-     <p>Designed with Love by Susan</p>
- </footer>
+        <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
+        <p>Designed with Love by Susan Wangari Thuo</p>
+    </div>
+    </footer>
 
 
 </body>
