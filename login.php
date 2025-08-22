@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if (empty($email) || empty($id_number) || empty($password)) {
-        echo "Please provide email, ID number, and password.";
+        echo "<script>alert('Please provide email, ID number, and password.'); window.history.back();</script>";
         exit;
     }
 
@@ -30,21 +30,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['role'] = $row['role'];
 
             if ($row['role'] === 'host') {
-                header("Location: hostdashboard.php");
+                echo "<script>alert('Login successful! Welcome, Host.'); window.location.href='hostdashboard.php';</script>";
             } else {
-                header("Location: clientdashboard.php");
+                echo "<script>alert('Login successful! Welcome, Guest.'); window.location.href='clientdashboard.php';</script>";
             }
             exit;
         } else {
-            echo "Incorrect password.";
+            echo "<script>alert('Incorrect password.'); window.history.back();</script>";
         }
     } else {
-        echo "User not found or ID number mismatch.";
+        echo "<script>alert('User not found or ID number mismatch.'); window.history.back();</script>";
     }
 
     $stmt->close();
 } else {
-    echo "Invalid request method.";
+    echo "<script>alert('Invalid request method.'); window.history.back();</script>";
 }
 
 $conn->close();

@@ -148,6 +148,7 @@ $bookings_result = $stmt->get_result();
 <head>
     <meta charset="UTF-8" />
     <title>Client Dashboard - Profile & Bookings</title>
+    <link rel="stylesheet" href="main.css">
     <style>
         /* Basic styling */
         body 
@@ -182,7 +183,7 @@ $bookings_result = $stmt->get_result();
         <a href="logout.php">Log Out</a>
     </nav>
 
-<h1>Welcome, <?= htmlspecialchars($user['name']) ?></h1>
+<h1 style="position: relative;top: 30px; left: 20px;">Welcome, <?= htmlspecialchars($user['name']) ?></h1>
 
 <?php if ($message): ?>
     <div class="message <?= strpos($message, 'Error') === false ? 'success' : 'error' ?>">
