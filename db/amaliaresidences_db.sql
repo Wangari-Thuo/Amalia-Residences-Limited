@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2025 at 08:58 PM
+-- Generation Time: Aug 25, 2025 at 03:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `amaliaresidences_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `admin_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varchar(11) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `name`, `email`, `role`, `password`) VALUES
+(1, 'Kelvin Shisanya', 'kelvoshisanya@gmail.com', 'Admin', 'Kelvin');
 
 -- --------------------------------------------------------
 
@@ -55,7 +76,9 @@ INSERT INTO `bookings` (`booking_id`, `user_id`, `property_id`, `booking_date`, 
 (9, 1, 5, '2025-08-10', '2025-08-14', '2025-08-22', 1, '', 320000.00),
 (10, 1, 8, '2025-08-10', '2025-08-18', '2025-08-21', 3, 'cancelled', 90000.00),
 (11, 1, 8, '2025-08-10', '2025-08-18', '2025-08-21', 3, 'cancelled', 90000.00),
-(12, 1, 2, '2025-08-11', '2025-08-20', '2025-08-28', 1, '', 680000.00);
+(12, 1, 2, '2025-08-11', '2025-08-20', '2025-08-28', 1, '', 680000.00),
+(13, 11, 2, '2025-08-25', '2025-08-25', '2025-08-26', 1, '', 85000.00),
+(14, 11, 2, '2025-08-25', '2025-08-25', '2025-08-26', 1, 'confirmed', 85000.00);
 
 -- --------------------------------------------------------
 
@@ -162,7 +185,8 @@ INSERT INTO `payments` (`payment_id`, `booking_id`, `amount`, `payment_date`, `m
 (3, 1, 595000.00, '2025-08-10 13:27:55', 'mpesa', 'THA8PWDS32', NULL, 'success'),
 (4, 1, 595000.00, '2025-08-10 13:28:14', 'mpesa', 'THA8PWDS32', NULL, 'success'),
 (5, 2, 225000.00, '2025-08-11 19:15:01', 'mpesa', 'THA8PWDS32', NULL, 'success'),
-(6, 12, 680000.00, '2025-08-11 19:23:39', 'mpesa', 'THA8PWDS32', NULL, 'success');
+(6, 12, 680000.00, '2025-08-11 19:23:39', 'mpesa', 'THA8PWDS32', NULL, 'success'),
+(7, 13, 85000.00, '2025-08-25 07:27:54', 'mpesa', '3454343', NULL, 'success');
 
 -- --------------------------------------------------------
 
@@ -264,11 +288,17 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `id_number`, `profile_photo`, `
 (6, 'Teresia Njoki', 'tnjoki@gmail.com', '780206', NULL, '$2y$10$4IkCdna.NOcIodAiO/B46O/0hKuExcPeiBsbikbIPZTxVvtNQYe8G', 'guest'),
 (7, 'Madam Jane', 'mjane@gmail.com', '810304', NULL, '$2y$10$ng34ErZCXVUAE/Y48U/Wm.qtI2nYCQ.RiOtD/.S3ZLAZL6ZSjBvoe', 'host'),
 (8, 'Paul Thuo', 'pthuo@gmail.com', '429087', NULL, '$2y$10$xRme3CeTS1epbfpsLcZLPO/xrmbgT0CnQ7aA0v7ekiXpohUa/ZER.', 'guest'),
-(11, 'Kelvin Shisanya', 'kelvoshisanya@gmail.com', '37062180', NULL, '$2y$10$LLxrtxUKRR8EcT8S1h27vOcihF0a5ORVdSjiJ2nlIh53wQjTXm2Oq', 'guest');
+(11, 'Kelvin Shisanya', 'kelvoshisanya@gmail.com', '37062180', 'user_11.jpg', '$2y$10$LLxrtxUKRR8EcT8S1h27vOcihF0a5ORVdSjiJ2nlIh53wQjTXm2Oq', 'guest');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `bookings`
@@ -340,10 +370,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `contact_queries`
@@ -367,7 +403,7 @@ ALTER TABLE `hosts`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `properties`

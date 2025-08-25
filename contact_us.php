@@ -80,11 +80,12 @@ $conn->close();
 </head>
 <body>
    <nav class="nav"> <!-- Move nav to the top inside body -->
+        <a href="index.html">Home</a>
         <a href="signup.html">Sign Up</a>
         <a href="login.html">Login</a>
         <a href="viewproperties.php">Book Now</a>
         <a href="searchproperties.php">Search Now</a>
-        <a href="contact_us.php">Help & Support</a>
+        <!-- <a href="contact_us.php">Help & Support</a> -->
         <a href="reviews.php">Leave a Review</a>
         <a href="FAQs.html">FAQs</a>
         <a href="logout.php">Log Out</a>
