@@ -67,21 +67,45 @@ if (!$property_id || !$price || !$maxguests) {
             calculateTotal();
         }
     </script>
+    <style>
+         .site-footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 10px;
+            margin-top: auto;
+            /* ensures it stays at bottom */
+        }
+        
+        .site-footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .container, form, table, img, p, h2 {
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto; /* centers horizontally */
+    padding: 20px;
+}
+
+    </style>
 </head>
 <body>
     <h2>Book Property With Us</h2>
-    <nav class="nav">
-  <a href="signup.html">Sign Up</a>
-  <a href="login.html">Login</a>
-  <a href="contact_us.php">Contact Us</a>
-  <a href="searchproperties.php">Search Now</a>
-  <a href="contact_us.php">Help & Support</a>
-  <a href="reviews.php">Leave a Review</a>
-  <a href="aboutus.html">About Us</a>
-  <a href="FAQs.html">FAQs</a>
-  <a href="logout.php">Log Out</a>
-</nav>
-
+    <nav class="nav"> 
+    
+        <a href="viewproperties.php">Book Now</a>
+        
+        <a href="searchproperties.php">Search Now</a>
+        <a href="contact_us.php">Help & Support</a>
+        <a href="reviews.php">Leave a Review</a>
+        <a href="FAQs.html">FAQs</a>
+        <a href="logout.php">Log Out</a>
+    </nav>
+<div class="container">
     <form method="POST" action="bookingprocess.php">
         <input type="hidden" name="property_id" value="<?php echo htmlspecialchars($property_id); ?>">
         <input type="hidden" name="price" value="<?php echo htmlspecialchars($price); ?>">
@@ -105,6 +129,7 @@ if (!$property_id || !$price || !$maxguests) {
 
         <button type="submit">Confirm Booking</button>
     </form>
+    </div>
    <footer class="site-footer">
   <div class="footer-content">
         <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>

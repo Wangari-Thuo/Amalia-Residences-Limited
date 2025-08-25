@@ -29,24 +29,24 @@ $checkOutDate=new DateTime($check_out);
 
 if($checkInDate<$today)
 {
-    echo "Check-in date cannot be in the past!";
-exit;
+    echo "<script>alert('Check-in date cannot be in the past!'); window.history.back();</script>";
+    exit;
 }
 
 if($checkOutDate<=$checkInDate)
 {
-    echo "Check-out date must be after the check-in date!";
+    echo "<script>alert('Check-out date must be after the check-in date!'); window.history.back();</script>";
     exit;
 }
 
 
 if (!$property_id || !$price || !$maxguests || !$check_in || !$check_out || !$num_guests) {
-    echo "Please fill in all fields.";
+    echo "<script>alert('Please fill in all fields.'); window.history.back();</script>";
     exit;
 }
 
 if ($num_guests > $maxguests) {
-    echo "Number of guests exceeds maximum allowed.";
+    echo "<script>alert('Number of guests exceeds maximum allowed.'); window.history.back();</script>";
     exit;
 }
 
@@ -56,9 +56,10 @@ $interval = $date1->diff($date2);
 $days = $interval->days;
 
 if ($days <= 0) {
-    echo "Check-out date must be after check-in date.";
+    echo "<script>alert('Check-out date must be after check-in date.'); window.history.back();</script>";
     exit;
 }
+
 
 $totalprice = $days * $price;
 
@@ -75,11 +76,16 @@ if(!$stmt){
 $stmt->bind_param("iissisd", $user_id, $property_id, $check_in, $check_out, $num_guests, $status, $totalprice);
 
 if ($stmt->execute()) {
-    echo "<p style='color:green;'>Booking successful! Total price: $$totalprice</p>";
-
-    echo "<p><a href='clientdashboard.php'>Go back to dashboard</a></p>";
+    echo "<script>
+        alert('Booking successful! Total price: $$totalprice');
+        window.location.href = 'clientdashboard.php';
+    </script>";
+    exit;
 } else {
-    echo "Booking failed: " . $stmt->error;
+    echo "<script>
+        alert('Booking failed: " . $stmt->error . "');
+        window.history.back();
+    </script>";
 }
 
 $stmt->close();

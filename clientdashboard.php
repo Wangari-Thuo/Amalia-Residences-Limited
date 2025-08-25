@@ -148,10 +148,10 @@ $bookings_result = $stmt->get_result();
 <head>
     <meta charset="UTF-8" />
     <title>Client Dashboard - Profile & Bookings</title>
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
     <style>
         /* Basic styling */
-        body 
+        /* body 
 
         { font-family: Arial, sans-serif; padding: 20px; }
         .profile-photo { width: 100px; border-radius: 50%; }
@@ -167,15 +167,187 @@ $bookings_result = $stmt->get_result();
         th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
         th { background-color: #f4f4f4; }
         .pay-form input { width: auto; display: inline-block; margin-right: 5px; }
-        .pay-form button { padding: 5px 10px; margin-top: 0; }
+        .pay-form button { padding: 5px 10px; margin-top: 0; } */
+
+        /* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: center; /* centers links */
+    gap: 20px;
+    background: #007bff;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+}
+
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.nav a:hover {
+    color: #ffdd57;
+}
+
+/* Page Content */
+h1 {
+    margin: 20px 0;
+}
+
+.container, form, table, img, p, h2 {
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto; /* centers horizontally */
+    padding: 20px;
+}
+
+
+.message {
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+/* Forms */
+form {
+    max-width: 500px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input[type=text],
+input[type=email],
+input[type=file],
+input[type=number],
+input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Payment form inside table */
+.pay-form input {
+    width: auto;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 6px;
+}
+
+.pay-form button {
+    padding: 6px 10px;
+    margin-top: 0;
+}
+
+/* Footer */
+.site-footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: auto; /* keeps footer at bottom */
+}
+
+.site-footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
     </style>
 </head>
 <body>
      <nav class="nav"> <!-- Move nav to the top inside body -->
-        <a href="signup.html">Sign Up</a>
-        <a href="login.html">Login</a>
+    
         <a href="viewproperties.php">Book Now</a>
-        <a href="contact_us.php">Contact Us</a>
+        
         <a href="searchproperties.php">Search Now</a>
         <a href="contact_us.php">Help & Support</a>
         <a href="reviews.php">Leave a Review</a>
@@ -183,7 +355,10 @@ $bookings_result = $stmt->get_result();
         <a href="logout.php">Log Out</a>
     </nav>
 
-<h1 style="position: relative;top: 30px; left: 20px;">Welcome, <?= htmlspecialchars($user['name']) ?></h1>
+
+    <div class="container">
+
+<h1 >Welcome, <?= htmlspecialchars($user['name']) ?></h1>
 
 <?php if ($message): ?>
     <div class="message <?= strpos($message, 'Error') === false ? 'success' : 'error' ?>">
@@ -262,6 +437,8 @@ $bookings_result = $stmt->get_result();
         </tbody>
     </table>
 <?php endif; ?>
+
+</div>
 
 <footer class="site-footer">
   <div class="footer-content">
