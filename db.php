@@ -3,9 +3,10 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "amaliaresidences_db";
+//$port=3307;
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli("localhost" ,"root" ,"" ,"amaliaresidences_db");
 
 // Check connection
 if ($conn->connect_error) {

@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'guest') {
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo "Please submit the booking form first.<br>";
-    echo "<a href ='index.html'>Go To Dashboard </a>";
+    echo "<a href ='index.php'>Go To Dashboard </a>";
     exit;
 }
 
@@ -77,8 +77,8 @@ $stmt->bind_param("iissisd", $user_id, $property_id, $check_in, $check_out, $num
 
 if ($stmt->execute()) {
     echo "<script>
-        alert('Booking successful! Total price: $$totalprice');
-        window.location.href = 'clientdashboard.php';
+        alert('Booking successful! Total price: KES $totalprice');
+        window.location.href = 'guestdashboard.php';
     </script>";
     exit;
 } else {

@@ -22,7 +22,7 @@ if (isset($_GET['delete'])) {
 
 // Fetch host listings - added missing fields (image and max_guests)
 $stmt = $conn->prepare("SELECT property_id, image, description, location, price, maxguests, status FROM properties WHERE owner_id = ?");
-$stmt->bind_param("i", $owner_id);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>

@@ -41,9 +41,9 @@ if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
+   
     $stmt = $conn->prepare("INSERT INTO users (name, email, id_number, password, role) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $name, $email, $id_number, $hashed_password, $role);
+    $stmt->bind_param("ssiss", $name, $email, $id_number, $hashed_password, $role);
 
     if ($stmt->execute()) {
         echo "<script>alert('Signup successful! You can now log in.'); window.location.href='login.html';</script>";

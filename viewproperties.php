@@ -40,7 +40,7 @@ $result = $conn->query($sql);
             <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
                 <h3><?php echo htmlspecialchars($property['description']); ?></h3>
                 <p><strong>Location:</strong> <?php echo htmlspecialchars($property['location']); ?></p>
-                <p><strong>Price per night:</strong> $<?php echo htmlspecialchars($property['price']); ?></p>
+                <p><strong>Price per night:</strong> KES <?php echo htmlspecialchars($property['price']); ?></p>
                 <p><strong>Max guests:</strong> <?php echo htmlspecialchars($property['maxguests']); ?></p>
                 <?php if (!empty($property['image'])): ?>
                     <img src="<?php echo htmlspecialchars($property['image']); ?>" alt="Property Image" width="200" />

@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (in_array($file_ext, $allowed)) {
             $image_name = uniqid() . '.' . $file_ext;
-            $destination = _DIR_ . '/uploads/' . $image_name;
+            $destination = __DIR__ . '/uploads/' . $image_name;
 
-            if (!is_dir(_DIR_ . '/uploads')) {
-                mkdir(_DIR_ . '/uploads', 0755, true);
+            if (!is_dir(__DIR__ . '/uploads')) {
+                mkdir(__DIR__ . '/uploads', 0755, true);
             }
 
             if (!move_uploaded_file($file_tmp, $destination)) {
@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="contact_us.php">Contact Us</a>
         <a href="searchproperties.php">Search Now</a>
         <a href="contact_us.php">Help & Support</a>
-        <a href="reviews.php">Leave a Review</a>
         <a href="FAQs.html">FAQs</a>
         <a href="logout.php">Log Out</a>
     <a href="hostdashboard.php">Back to Dashboard</a>

@@ -88,7 +88,7 @@ $result = $stmt->get_result();
         <p>No bookings found.</p>
     <?php endif; ?>
     
-    < <footer class="site-footer">
+     <footer class="site-footer">
   <div class="footer-content">
         <p>&copy; 2025 Amalia Residences Limited. All rights reserved.</p>
         <p>Designed with Love by Susan Wangari Thuo</p>

@@ -18,7 +18,7 @@ if (!$booking_id || !$amount || !$phone) {
     die("Missing payment details.");
 }
 
-// Daraja API credentials — replace these with your actual credentials
+// Daraja API credentials
 $consumerKey = 'T6GGMLKYzwkKWGhAJ0MAkzOXGsA6xwmGh6ANXJEGGdT6g7PX';
 $consumerSecret = 'L6BkN6bxJ4LIGNuQKconmKoiLFxS9rxSGGkdfrxoVBGqPGSsFXoj2GBnAvACEVAD';
 $businessShortCode = '174379';

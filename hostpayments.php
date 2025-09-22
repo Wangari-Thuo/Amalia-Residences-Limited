@@ -50,7 +50,7 @@ $result = $stmt->get_result();
             <td><?php echo htmlspecialchars($row['name']); ?></td>
             <td><?php echo number_format($row['amount'], 2); ?></td>
             <td><?php echo htmlspecialchars($row['payment_date']); ?></td>
-            <td><?php echo htmlspecialchars($row['status']); ?></td>
+            <td><?php echo htmlspecialchars($row['payment_status']); ?></td>
         </tr>
         <?php endwhile; ?>
     </table>

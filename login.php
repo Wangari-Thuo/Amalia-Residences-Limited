@@ -1,10 +1,6 @@
 <?php
 session_start();
-
-$conn = new mysqli("localhost", "root", "", "amaliaresidences_db");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -32,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($row['role'] === 'host') {
                 echo "<script>alert('Login successful! Welcome, Host.'); window.location.href='hostdashboard.php';</script>";
             } else {
-                echo "<script>alert('Login successful! Welcome, Guest.'); window.location.href='clientdashboard.php';</script>";
+                echo "<script>alert('Login successful! Welcome, Guest.'); window.location.href='guestdashboard.php';</script>";
             }
             exit;
         } else {
